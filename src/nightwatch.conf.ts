@@ -30,7 +30,8 @@ module.exports = {
   },
   test_settings: {
     default: {
-      launch_url: 'http://localhost',
+      launch_url: 'http://test-nightwatch.netlify.com/test-demo.html',
+      // launch_url: 'http://localhost/test-demo.html',
       desiredCapabilities : {
         browserName : 'chrome',
         chromeOptions: {
