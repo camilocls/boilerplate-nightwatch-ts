@@ -15,7 +15,7 @@ In a new tab run the test
 yarn test
 ```
 
-Site demo to test: ```https://test-nightwatch.netlify.com/test-demo.html```
+Site demo to test: https://test-nightwatch.netlify.com/test-demo.html
 
 ### Tools
 
