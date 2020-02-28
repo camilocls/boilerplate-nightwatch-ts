@@ -104,3 +104,6 @@ dist
 .tern-port
 
 tests_output
+
+package-lock.json
+.DS_Store

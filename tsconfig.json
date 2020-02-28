@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es6",
+    // "noEmit": true,
+    "strict": true,
     "lib": ["es6"],
     "allowJs": true,
     "jsx": "react",
@@ -16,6 +18,15 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "inlineSourceMap": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "typeRoots": [
       "node_modules/@types",
       "src/types"

@@ -23,15 +23,15 @@ module.exports = {
   webdriver: {
     start_process: true,
     port: 9515,
-    server_path: Services.chromedriver.path,
+    server_path: "./node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
     cli_args: [
       "--verbose"
     ],
   },
   test_settings: {
     default: {
-      launch_url: 'http://test-nightwatch.netlify.com/test-demo.html',
-      // launch_url: 'http://localhost/test-demo.html',
+      // launch_url: 'http://test-nightwatch.netlify.com/test-demo.html',
+      launch_url: 'http://localhost/test-demo.html',
       desiredCapabilities : {
         browserName : 'chrome',
         chromeOptions: {
