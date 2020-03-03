@@ -7,7 +7,7 @@ module.exports = {
       locateStrategy: "xpath",
       elements: {
         slide: {
-          selector: '//div[@class="slide"]',
+          selector: './/div[@class="slide"]',
           locateStrategy: "xpath"
         }
       }
@@ -17,7 +17,7 @@ module.exports = {
       locateStrategy: "xpath",
       elements: {
         listItems: {
-          selector: '//ul[contains(@class,"list")]//li',
+          selector: './/ul[contains(@class,"list")]//li',
           locateStrategy: "xpath"
         }
       }
@@ -71,7 +71,7 @@ module.exports = {
       return this.waitForElementVisible("@showModal").click("@showModal");
     },
     validateHero(this: HomePage) {
-      const section = this.api.page.HomePage().sections.hero;
+      const section = this.section.hero;
       return section.assert.valueContains("@slide", "slide", "Verified!");
     },
     validateTitle(this: HomePage): HomePage {
@@ -107,7 +107,7 @@ module.exports = {
               items.value[element].ELEMENT,
               "innerText",
               function(res) {
-                console.log(res);
+                console.log('InnerText: ', res);
               }
             );
           });
@@ -115,22 +115,22 @@ module.exports = {
       );
     },
     validateListItems(this: HomePage) {
-      const section = this.api.page.HomePage().section.questions;
+      const section = this.section.questions;
 
       return section
         .waitForElementVisible("@listItems")
         .api.elements("@listItems", (elements: any) => {
-          console.log(elements.result.value);
+          console.log('Elements: ', elements.result.value);
 
           elements.result.value.forEach((element: { ELEMENT: string }) => {
-            console.log(element);
+            console.log('Element: ', element);
             this.api.elementIdText(element.ELEMENT, result => {
               console.log("Item text: ", result);
             });
           });
         });
     },
-    async validateElementsCount(this: HomePage) {
+    validateElementsCount(this: HomePage) {
       return this.getText({ selector: "@title", index: 4 }, result => {
         console.log(result);
       });

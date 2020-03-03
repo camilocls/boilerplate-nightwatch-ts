@@ -13,6 +13,7 @@ declare module 'nightwatch' {
     section: {
       modal: EnhancedPageObjectSections
       questions: EnhancedPageObjectSections
+      hero: EnhancedPageObjectSections
     }
   }
 
