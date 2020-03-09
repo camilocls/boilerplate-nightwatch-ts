@@ -1,6 +1,8 @@
-import { HomePage } from "nightwatch";
+import { HomePageTypes } from "nightwatch";
+const { HomePage, ModalSection, ModalFooterSection } = HomePageTypes;
 
-module.exports = {
+
+export default {
   sections: {
     hero: {
       selector: '//section[@class="hero"]',
@@ -34,6 +36,31 @@ module.exports = {
           selector: './/div[contains(@class,"modal__close")]',
           locateStrategy: "xpath"
         }
+      },
+      commands: {
+        validateTheModal(this: ModalSection): ModalSection {
+          return this.waitForElementVisible('@close')
+        },
+        validateTheContent(this: ModalSection, theVarExpected: string): NightwatchAPI {
+          return this.api.assert.equal(theVarExpected, "10", "Epa!");
+        }
+      },
+      sections: {
+        footer: {
+          selector: '//div[@class="footer"]',
+          locateStrategy: 'xpath',
+          elements: {
+            title: {
+              selector: '//div[@class="footer__tile"]',
+              locateStrategy: 'xpath'
+            }
+          },
+          commands: {
+            validateFooter(this: ModalFooterSection): ModalFooterSection {
+              return this.waitForElementVisible('@title')
+            }
+          }
+        }
       }
     }
   },
@@ -58,10 +85,10 @@ module.exports = {
       sectionModal
         .waitForElementVisible("@content")
         .getAttribute("@content", "data-id", (result: any) => {
-          console.log('Data ID = ', result.value);
+          console.log("Data ID = ", result.value);
         })
         .getText("@content", (result: any) => {
-          console.log('Text Content = ', result.value);
+          console.log("Text Content = ", result.value);
         });
       return (() => {
         this.section.questions.waitForElementVisible("@listItems");
@@ -70,7 +97,7 @@ module.exports = {
     showModal(this: HomePage) {
       return this.waitForElementVisible("@showModal").click("@showModal");
     },
-    validateHero(this: HomePage) {
+    validateHero(this: HomePage): HomePage {
       const section = this.section.hero;
       return section.assert.valueContains("@slide", "slide", "Verified!");
     },
@@ -97,7 +124,7 @@ module.exports = {
         });
       });
     },
-    getAllElements(this: HomePage) {
+    getAllElements(this: HomePage): NightwatchAPI {
       return this.api.elements(
         this.elements.title.locateStrategy,
         this.elements.title.selector,
@@ -107,7 +134,7 @@ module.exports = {
               items.value[element].ELEMENT,
               "innerText",
               function(res) {
-                console.log('InnerText: ', res);
+                console.log("InnerText: ", res);
               }
             );
           });
@@ -120,10 +147,10 @@ module.exports = {
       return section
         .waitForElementVisible("@listItems")
         .api.elements("@listItems", (elements: any) => {
-          console.log('Elements: ', elements.result.value);
+          console.log("Elements: ", elements.result.value);
 
           elements.result.value.forEach((element: { ELEMENT: string }) => {
-            console.log('Element: ', element);
+            console.log("Element: ", element);
             this.api.elementIdText(element.ELEMENT, result => {
               console.log("Item text: ", result);
             });

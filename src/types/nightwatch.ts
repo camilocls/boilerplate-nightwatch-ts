@@ -1,22 +1,6 @@
-import { EnhancedPageObject as _EnhancedPageObject } from 'nightwatch'
+import { NightwatchAPI as _NightwatchAPI } from 'nightwatch'
 
 declare module 'nightwatch' {
-  interface HomePage extends EnhancedPageObject {
-    validateTitle: () => HomePage
-    getAllElements: () => NightwatchAPI
-    clickButtonOnIframe: () => NightwatchAPI,
-    validateCardTitle: () => HomePage
-    validateListItems: () => HomePage
-    validateModal: () => HomePage
-    validateElementsCount: () => HomePage
-    showModal: () => HomePage
-    section: {
-      modal: EnhancedPageObjectSections
-      questions: EnhancedPageObjectSections
-      hero: EnhancedPageObjectSections
-    }
-  }
-
   type SelectorOptions = {
     selector: string
     index: number
