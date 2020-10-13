@@ -1,37 +1,26 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "outDir": "./dist",
-    "module": "commonjs",
-    "target": "es6",
-    // "noEmit": true,
-    "strict": true,
-    "lib": ["es6"],
-    "allowJs": true,
-    "jsx": "react",
-    "moduleResolution": "Node",
     "rootDir": "./src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "target": "es5",
+    "module": "commonjs",
+    "noEmit": false,
+    "noEmitOnError": true,
+    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "inlineSourceMap": true,
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "strictPropertyInitialization": true,
+    "noImplicitThis": true,
     "alwaysStrict": true,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./src",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "src/types"
-    ]
+    "esModuleInterop": true
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules"]
 }
